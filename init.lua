@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -1033,15 +1033,15 @@ require('lazy').setup(
         { '<leader>ls', '<cmd>LoveStop<cr>', ft = 'lua', desc = '[S]top LÖVE' },
       },
     },
-    {
-      'folke/noice.nvim',
-      event = 'VeryLazy',
-      opts = {},
-      dependencies = {
-        'MunifTanjim/nui.nvim',
-        'rcarriga/nvim-notify',
-      },
-    },
+    -- {
+    -- 'folke/noice.nvim',
+    -- event = 'VeryLazy',
+    -- opts = {},
+    -- dependencies = {
+    -- 'MunifTanjim/nui.nvim',
+    -- 'rcarriga/nvim-notify',
+    -- },
+    -- },
   },
   ---@diagnostic disable-next-line: missing-fields
   {
