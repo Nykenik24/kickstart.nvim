@@ -3,10 +3,9 @@
 This is my neovim config.\
 \
 If (for some reason) you want to download it:
-> [!note] Linux only
-> Description
+> NOTE: Linux only
 1. Backup and clean your current configuration
-> [!note] if you don't have a current config skip this step
+> NOTE: if you don't have a current config skip this step
 ```bash
 mv ~/.config/nvim ~/.config/nvim.backup
 rm -rf ~/.local/share/nvim/* ~/.cache/nvim/*
