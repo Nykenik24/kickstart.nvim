@@ -3,7 +3,7 @@
 This is my neovim config.
 
 ## Download
-> IMPORTANT: See "Disclaimer" before installing this configuration
+> IMPORTANT: See "Disclaimer" before installing this configuration\
 > NOTE: Linux only
 1. Backup and clean your current configuration
 > NOTE: if you don't have a current config skip this step
