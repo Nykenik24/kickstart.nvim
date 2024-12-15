@@ -986,6 +986,16 @@ require('lazy').setup(
       -- use opts = {} for passing setup options
       -- this is equivalent to setup({}) function
     },
+    {
+      'cdmill/focus.nvim',
+      cmd = { 'Focus', 'Zen', 'Narrow' },
+      opts = {},
+      keys = {
+        { '<leader>F', desc = '[F]ocus' },
+        { '<leader>Fz', '<cmd>Zen<cr>', desc = '[Z]en mode' },
+        { '<leader>Ff', '<cmd>Focus<cr>', desc = '[F]ocus mode' },
+      },
+    },
   },
   ---@diagnostic disable-next-line: missing-fields
   {
