@@ -1,8 +1,8 @@
 # My fork of "kickstart.nvim"
 
-This is my neovim config.\
-\
-If (for some reason) you want to download it:
+This is my neovim config.
+
+## Download
 > NOTE: Linux only
 1. Backup and clean your current configuration
 > NOTE: if you don't have a current config skip this step
