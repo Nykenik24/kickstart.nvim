@@ -1042,6 +1042,29 @@ require('lazy').setup(
     -- 'rcarriga/nvim-notify',
     -- },
     -- },
+    'max397574/colortils.nvim',
+    'yamatsum/nvim-cursorline',
+    {
+      'utilyre/barbecue.nvim',
+      dependencies = {
+        'SmiteshP/nvim-navic',
+        'nvim-tree/nvim-web-devicons', -- optional dependency
+      },
+      opts = {
+        -- configurations go here
+      },
+      config = function()
+        require('barbecue.ui').toggle(true)
+      end,
+    },
+    'HampusHauffman/block.nvim',
+    {
+      'windwp/nvim-autopairs',
+      event = 'InsertEnter',
+      config = true,
+      -- use opts = {} for passing setup options
+      -- this is equivalent to setup({}) function
+    },
   },
   ---@diagnostic disable-next-line: missing-fields
   {
