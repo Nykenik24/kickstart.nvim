@@ -3,6 +3,7 @@
 This is my neovim config.
 
 ## Download
+> IMPORTANT: See ["Disclaimer"](https://github.com/Nykenik24/kickstart.nvim/blob/master/README.md#disclaimer)
 > NOTE: Linux only
 1. Backup and clean your current configuration
 > NOTE: if you don't have a current config skip this step
