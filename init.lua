@@ -1,3 +1,6 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -12,6 +15,7 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.o.termguicolors = true
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -753,42 +757,36 @@ require('lazy').setup(
       end,
     },
 
-    { -- You can easily change to a different colorscheme.
-      -- Change the name of the colorscheme plugin below, and then
-      -- change the command in the config to whatever the name of that colorscheme is.
-      --
-      -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-      --'ellisonleao/gruvbox.nvim',
-      'neanias/everforest-nvim',
-      priority = 1000, -- Make sure to load this before all the other start plugins.
+    {
+      'Mofiqul/vscode.nvim',
       config = function()
-        -- vim.cmd.colorscheme 'gruvbox'
-        vim.cmd.colorscheme 'everforest'
+        local colors = require('vscode.colors').get_colors()
+        require('vscode').setup {
+          -- Enable transparent background
+          transparent = true,
+
+          -- Enable italic comment
+          italic_comments = true,
+
+          -- Underline `@markup.link.*` variants
+          underline_links = true,
+
+          -- Disable nvim-tree background color
+          disable_nvimtree_bg = true,
+
+          -- Override colors (see ./lua/vscode/colors.lua)
+          color_overrides = {
+            vscLineNumber = '#FFFFFF',
+          },
+
+          -- Override highlight groups (see ./lua/vscode/theme.lua)
+          group_overrides = {
+            -- this supports the same val table as vim.api.nvim_set_hl
+            Cursor = { fg = colors.vscDarkBlue, bg = colors.vscLightGreen, bold = true },
+          },
+        }
+        vim.cmd.colorscheme 'vscode'
       end,
-      opts = {
-        terminal_colors = true, -- add neovim terminal colors
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = false,
-          emphasis = true,
-          comments = false,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = 'hard', -- can be "hard", "soft" or empty string
-        palette_overrides = {},
-        overrides = {},
-        dim_inactive = false,
-        transparent_mode = true,
-      },
     },
 
     -- Highlight todo, notes, etc in comments
@@ -868,10 +866,9 @@ require('lazy').setup(
     --
     -- require 'kickstart.plugins.debug',
     -- require 'kickstart.plugins.indent_line',
-    -- require 'kickstart.plugins.lint',
-    -- require 'kickstart.plugins.autopairs',
-    -- require 'kickstart.plugins.neo-tree',
-    -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+    require 'kickstart.plugins.autopairs',
+    require 'kickstart.plugins.neo-tree',
+    require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
     -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
     --    This is the easiest way to modularize your config.
@@ -980,13 +977,6 @@ require('lazy').setup(
     },
     'HampusHauffman/block.nvim',
     {
-      'windwp/nvim-autopairs',
-      event = 'InsertEnter',
-      config = true,
-      -- use opts = {} for passing setup options
-      -- this is equivalent to setup({}) function
-    },
-    {
       'cdmill/focus.nvim',
       cmd = { 'Focus', 'Zen', 'Narrow' },
       opts = {},
@@ -995,6 +985,12 @@ require('lazy').setup(
         { '<leader>Fz', '<cmd>Zen<cr>', desc = '[Z]en mode' },
         { '<leader>Ff', '<cmd>Focus<cr>', desc = '[F]ocus mode' },
       },
+    },
+    {
+      'norcalli/nvim-colorizer.lua',
+      config = function()
+        require('colorizer').setup()
+      end,
     },
   },
   ---@diagnostic disable-next-line: missing-fields

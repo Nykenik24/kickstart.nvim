@@ -11,7 +11,11 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<Leader>n', desc = '[N]eoTree' },
+    { '<Leader>nt', '<cmd>Neotree toggle<cr>', desc = 'NeoTree [T]oggle', silent = true },
+    { '<Leader>nf', '<cmd>Neotree focus<cr>', desc = 'NeoTree [F]ocus', silent = true },
+    { '<Leader>no', '<cmd>Neotree<cr>', desc = 'NeoTree [O]pen', silent = true },
+    { '<Leader>nc', '<cmd>Neotree close<cr>', desc = 'NeoTree [C]lose', silent = true },
   },
   opts = {
     filesystem = {
@@ -22,4 +26,9 @@ return {
       },
     },
   },
+  config = function()
+    require('neo-tree').setup {
+      close_if_last_window = true,
+    }
+  end,
 }
