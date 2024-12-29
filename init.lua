@@ -132,7 +132,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then
     error('Error cloning lazy.nvim:\n' .. out)
   end
@@ -756,39 +755,22 @@ require('lazy').setup(
         }
       end,
     },
-
     {
-      'Mofiqul/vscode.nvim',
-      config = function()
-        local colors = require('vscode.colors').get_colors()
-        require('vscode').setup {
-          -- Enable transparent background
-          transparent = true,
-
-          -- Enable italic comment
-          italic_comments = true,
-
-          -- Underline `@markup.link.*` variants
-          underline_links = true,
-
-          -- Disable nvim-tree background color
-          disable_nvimtree_bg = true,
-
-          -- Override colors (see ./lua/vscode/colors.lua)
-          color_overrides = {
-            vscLineNumber = '#FFFFFF',
-          },
-
-          -- Override highlight groups (see ./lua/vscode/theme.lua)
-          group_overrides = {
-            -- this supports the same val table as vim.api.nvim_set_hl
-            Cursor = { fg = colors.vscDarkBlue, bg = colors.vscLightGreen, bold = true },
-          },
-        }
-        vim.cmd.colorscheme 'vscode'
-      end,
+      'folke/tokyonight.nvim',
+      lazy = false,
+      priority = 1000,
+      opts = {
+        transparent = true,
+        style = 'storm',
+        styles = {
+          keywords = { bold = true },
+          functions = { italic = true },
+          sidebars = 'transparent',
+          floats = 'dark',
+        },
+        dim_inactive = true,
+      },
     },
-
     -- Highlight todo, notes, etc in comments
     { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -1017,5 +999,6 @@ require('lazy').setup(
   }
 )
 
+vim.cmd 'colorscheme tokyonight'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
