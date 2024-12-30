@@ -765,7 +765,8 @@ require('lazy').setup(
         --style = 'storm',
         styles = {
           keywords = { bold = true, italic = false },
-          functions = { italic = true },
+          functions = { underline = true },
+          variables = { italic = true },
           sidebars = 'transparent',
           floats = 'dark',
         },
