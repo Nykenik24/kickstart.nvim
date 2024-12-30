@@ -19,8 +19,13 @@ git clone https://github.com/Nykenik24/kickstart.nvim ~/.config/nvim
 ### Help
 If you want any help, go to the `kickstart.nvim` repository.
 
-### Disclaimer
-Note that this configuration is completely personal, so some lines may need to be commented. Per example we have the function assigned to `"<leader>K"`, that executes a script in my `~/scripts/` directory
-that displays a random cat image from a cat image directory *yes, i have a cat image directory*. In this case you could create a `~/scripts` directory and create a script called `random-kitty.sh` that
-displays a random cat image, but it's better to comment out this type of things.
+### Things it has
+- *Barbecue.nvim* to see if i am in conditionals, loops, etc. and in what file.
+- *Neotree* to see my files.
+- Mouse and arrows disabled.
+- *Harpoon* to "pin" files.
+- Tokyo night theme.
+- *Cellular automaton* and *Killer Sheep* to have some fun if i am bored/tired.
 
+### Disclaimer
+Note that this configuration is completely personal, so some lines may need to be commented.
