@@ -762,7 +762,7 @@ require('lazy').setup(
       priority = 1000,
       opts = {
         transparent = true,
-        style = 'storm',
+        --style = 'storm',
         styles = {
           keywords = { bold = true },
           functions = { italic = true },
