@@ -764,9 +764,9 @@ require('lazy').setup(
         transparent = true,
         --style = 'storm',
         styles = {
-          keywords = { bold = true, italic = false },
-          functions = { underline = true },
-          variables = { italic = true },
+          keywords = { bold = false, italic = true },
+          functions = { underline = false, italic = true },
+          variables = { italic = false },
           sidebars = 'transparent',
           floats = 'dark',
         },
@@ -877,16 +877,16 @@ require('lazy').setup(
       'ThePrimeagen/harpoon',
       opts = {},
       keys = {
-        { '<leader>h', desc = '[H]arpoon' },
+        { '<leader>H', desc = '[H]arpoon' },
         {
-          '<leader>ho',
+          '<leader>Ho',
           function()
             require('harpoon.ui').toggle_quick_menu()
           end,
           desc = '[O]pen harpoon menu',
         },
         {
-          '<leader>hm',
+          '<leader>Hm',
           function()
             require('harpoon.mark').add_file()
             -- require("harpoon.ui").notification "Marked current file"
@@ -895,7 +895,7 @@ require('lazy').setup(
           desc = '[M]ark file',
         },
         {
-          '<leader>hu',
+          '<leader>Hu',
           function()
             require('harpoon.mark').rm_file()
             -- require("harpoon.ui").notification "Unmarked current file"
@@ -904,7 +904,7 @@ require('lazy').setup(
           desc = '[U]nmark file',
         },
         {
-          '<leader>hc',
+          '<leader>Hc',
           function()
             require('harpoon.mark').clear_all()
             -- require("harpoon.ui").notification "Cleared all files"
